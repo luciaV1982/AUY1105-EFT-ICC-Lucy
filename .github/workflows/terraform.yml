@@ -31,3 +31,14 @@ jobs:
 
       - name: Validar configuración
         run: terraform validate
+
+      - name: Instalar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar Checkov
+        run: pip install checkov==3.3.8
+
+      - name: Analizar seguridad con Checkov
+        run: checkov -d . --framework terraform
