@@ -1,0 +1,55 @@
+name: Terraform Validation
+
+on:
+  push:
+    branches:
+      - main
+      - feature/**
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    name: Terraform Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.15.6
+
+      - name: Verificar formato
+        run: terraform fmt -check -recursive
+
+      - name: Inicializar Terraform
+        run: terraform init -backend=false
+
+      - name: Validar configuración
+        run: terraform validate
+
+      - name: Instalar TFLint
+        uses: terraform-linters/setup-tflint@v4
+        with:
+          tflint_version: latest
+
+      - name: Inicializar complementos de TFLint
+        run: tflint --recursive --init
+
+      - name: Analizar calidad con TFLint
+        run: tflint --recursive  
+
+      - name: Instalar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar Checkov
+        run: pip install checkov==3.3.8
+
+      - name: Analizar seguridad con Checkov
+        run: checkov -d . --config-file .checkov.yml

@@ -383,3 +383,27 @@ El proyecto quedó más flexible, reutilizable y fácil de adaptar a distintos e
 - 36-Main-Refactorizado-Variables
 - 37-Terraform-Tfvars-Example-Completo
 - 38-GitIgnore
+
+---
+
+## Paso 16 - Endurecimiento de seguridad de la instancia EC2
+
+### Objetivo
+
+Corregir vulnerabilidades detectadas automáticamente por Checkov en la configuración de la instancia EC2.
+
+### Actividades realizadas
+
+- Se habilitó el monitoreo detallado de la instancia EC2.
+- Se configuró el uso obligatorio de IMDSv2.
+- Se habilitó el cifrado del volumen raíz EBS.
+- Se ejecutaron `terraform fmt -recursive` y `terraform validate`.
+
+### Resultado
+
+La configuración de la instancia EC2 fue reforzada mediante controles de monitoreo, protección del servicio de metadatos y cifrado del almacenamiento.
+
+### Evidencias
+
+- 47-Endurecimiento-EC2
+- 48-Validate-Endurecimiento-EC2
