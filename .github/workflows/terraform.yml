@@ -32,6 +32,17 @@ jobs:
       - name: Validar configuración
         run: terraform validate
 
+      - name: Instalar TFLint
+        uses: terraform-linters/setup-tflint@v4
+        with:
+          tflint_version: latest
+
+      - name: Inicializar complementos de TFLint
+        run: tflint --recursive --init
+
+      - name: Analizar calidad con TFLint
+        run: tflint --recursive  
+
       - name: Instalar Python
         uses: actions/setup-python@v5
         with:
