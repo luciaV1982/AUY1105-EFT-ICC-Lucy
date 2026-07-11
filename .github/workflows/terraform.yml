@@ -52,4 +52,4 @@ jobs:
         run: pip install checkov==3.3.8
 
       - name: Analizar seguridad con Checkov
-        run: checkov -d . --framework terraform
+        run: checkov -d . --config-file .checkov.yml

@@ -1,0 +1,44 @@
+framework:
+  - terraform
+
+compact: true
+
+skip-check:
+  # La EC2 necesita acceso de salida para actualizaciones y descargas.
+  - CKV_AWS_382
+
+  # HTTP público forma parte del alcance demostrativo del laboratorio.
+  - CKV_AWS_260
+
+  # La optimización EBS depende del tipo de instancia utilizado.
+  - CKV_AWS_135
+
+  # La EC2 requiere IP pública para acceso y demostración.
+  - CKV_AWS_88
+
+  # La subred pública asigna IP pública por diseño.
+  - CKV_AWS_130
+
+  # El control del Security Group predeterminado no forma parte del alcance.
+  - CKV2_AWS_12
+
+  # El logging de S3 requeriría un bucket adicional.
+  - CKV_AWS_18
+
+  # Se utiliza cifrado AES-256; KMS queda fuera del alcance académico.
+  - CKV_AWS_145
+
+  # VPC Flow Logs requiere recursos adicionales de IAM y CloudWatch.
+  - CKV2_AWS_11
+
+  # La replicación entre regiones queda fuera del alcance del laboratorio.
+  - CKV_AWS_144
+
+  # Las notificaciones S3 requerirían SNS, SQS o Lambda.
+  - CKV2_AWS_62
+
+  # El ciclo de vida S3 no es necesario para esta demostración.
+  - CKV2_AWS_61
+
+  # La creación de roles IAM puede estar restringida en AWS Academy.
+  - CKV2_AWS_41
