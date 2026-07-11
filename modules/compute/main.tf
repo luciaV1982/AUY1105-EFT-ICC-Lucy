@@ -40,6 +40,16 @@ resource "aws_instance" "this" {
   associate_public_ip_address = true
   key_name                    = var.key_name
 
+  monitoring = true
+
+  metadata_options {
+    http_tokens = "required"
+  }
+
+  root_block_device {
+    encrypted = true
+  }
+
   tags = {
     Name = "auy1105-eft-ec2"
   }
