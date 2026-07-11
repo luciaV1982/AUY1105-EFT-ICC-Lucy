@@ -1,0 +1,33 @@
+name: Terraform Validation
+
+on:
+  push:
+    branches:
+      - main
+      - feature/**
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    name: Terraform Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.15.6
+
+      - name: Verificar formato
+        run: terraform fmt -check -recursive
+
+      - name: Inicializar Terraform
+        run: terraform init -backend=false
+
+      - name: Validar configuración
+        run: terraform validate
