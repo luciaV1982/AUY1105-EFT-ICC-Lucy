@@ -37,8 +37,6 @@ Adicionalmente, se implementó un proceso de **Integración Continua (CI)** util
 
 ---
 
----
-
 # 🏛️ Arquitectura de la solución
 
 La siguiente figura presenta la arquitectura general desarrollada para la Evaluación Final Transversal.
@@ -437,7 +435,7 @@ La documentación describe el propósito del módulo, los recursos creados, las 
 
 ![README módulo Compute](evidencias/05-compute/19-README-Modulo-Compute.png)
 
-**Figura 24.** Documentación técnica del módulo Compute.
+**Figura 23.** Documentación técnica del módulo Compute.
 
 Con la implementación de este módulo se logró desacoplar completamente la infraestructura de cómputo del proyecto principal, permitiendo desplegar instancias EC2 de manera reutilizable y consistente mediante Terraform.
 
@@ -792,15 +790,11 @@ Una vez finalizado el proceso se verificó la creación de los principales recur
 
 ![Subredes creadas](evidencias/10-despliegue/69-Subredes-Creadas.png)
 
-![Subredes creadas](evidencias/10-despliegue/69-Subredes-Creadas.png)
-
 ![Instancia EC2 creada](evidencias/10-despliegue/70-EC2-Creada.png)
 
 ![Security Group](evidencias/10-despliegue/71-Security-Group.png)
 
 ![Bucket S3](evidencias/10-despliegue/72-Bucket-S3.png)
-
-![Terraform Destroy](evidencias/10-despliegue/74-Terraform-Destroy-Exitoso.png)
 
 **Figura 51.** Recursos creados correctamente en Amazon Web Services.
 
@@ -879,6 +873,12 @@ El siguiente cuadro resume los principales objetivos alcanzados durante el desar
 | Eliminación de la infraestructura mediante Terraform Destroy | ✅ |
 
 Los resultados obtenidos evidencian el cumplimiento de los objetivos planteados para la evaluación, demostrando la correcta integración entre los módulos desarrollados, el proceso de automatización y el despliegue de infraestructura en la nube.
+
+---
+
+## Eliminación de la infraestructura
+
+![Terraform Destroy](evidencias/10-despliegue/74-Terraform-Destroy-Exitoso.png)
 
 ---
 
