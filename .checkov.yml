@@ -42,3 +42,9 @@ skip-check:
 
   # La creación de roles IAM puede estar restringida en AWS Academy.
   - CKV2_AWS_41
+  
+  # exige un hash de commit para módulos Git. Pero tus módulos se consumen desde Terraform Registry mediante una versión: source  = "app.terraform.io/luciavillalobos1982/network-eft-lucia/aws" version = "1.0.0"
+  - CKV_TF_1
+
+  # se documenta como excepción porque el Security Group usa:cidr_blocks = [var.allowed_ssh_cidr] 
+  - CKV_AWS_24
