@@ -790,6 +790,18 @@ Una vez finalizado el proceso se verificó la creación de los principales recur
 
 ![Recursos desplegados](evidencias/10-despliegue/68-VPC-Creada.png)
 
+![Subredes creadas](evidencias/10-despliegue/69-Subredes-Creadas.png)
+
+![Subredes creadas](evidencias/10-despliegue/69-Subredes-Creadas.png)
+
+![Instancia EC2 creada](evidencias/10-despliegue/70-EC2-Creada.png)
+
+![Security Group](evidencias/10-despliegue/71-Security-Group.png)
+
+![Bucket S3](evidencias/10-despliegue/72-Bucket-S3.png)
+
+![Terraform Destroy](evidencias/10-despliegue/74-Terraform-Destroy-Exitoso.png)
+
 **Figura 51.** Recursos creados correctamente en Amazon Web Services.
 
 
