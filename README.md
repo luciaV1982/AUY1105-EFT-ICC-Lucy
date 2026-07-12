@@ -401,7 +401,7 @@ Entre ellos destacan:
 - Dirección IP privada.
 - ID del Security Group.
 
-![Outputs módulo Compute](evidencias/05-compute/16-Outputs-Modulo-Compute.png)
+![Outputs módulo Compute](evidencias/05-compute/18-Outputs-Modulo-Compute.png)
 
 **Figura 20.** Outputs publicados por el módulo Compute.
 
@@ -413,7 +413,7 @@ Una vez finalizado el módulo, este fue integrado al archivo `main.tf` del proye
 
 La configuración permite reutilizar el módulo simplemente proporcionando las variables de entrada necesarias, manteniendo una arquitectura completamente modular.
 
-![Integración módulo Compute](evidencias/05-compute/17-Integracion-Modulo-Compute.png)
+![Integración módulo Compute](evidencias/05-compute/20-Integracion-Modulo-Compute.png)
 
 **Figura 21.** Integración del módulo Compute con el proyecto principal.
 
@@ -435,7 +435,7 @@ Al igual que el resto de los módulos desarrollados para esta evaluación, el m�
 
 La documentación describe el propósito del módulo, los recursos creados, las variables de entrada, los outputs disponibles y un ejemplo de utilización, facilitando su reutilización en futuros proyectos.
 
-![README módulo Compute](evidencias/05-compute/20-README-Modulo-Compute.png)
+![README módulo Compute](evidencias/05-compute/19-README-Modulo-Compute.png)
 
 **Figura 24.** Documentación técnica del módulo Compute.
 
@@ -469,7 +469,7 @@ Las principales variables definidas corresponden a:
 - Nombre del bucket.
 - Habilitación del versionado.
 
-![Variables módulo Storage](evidencias/06-storage/21-Variables-Modulo-Storage.png)
+![Variables módulo Storage](evidencias/06-storage/24-Variables-Modulo-Storage.png)
 
 **Figura 25.** Variables configurables del módulo Storage.
 
@@ -481,7 +481,7 @@ Como primer recurso del módulo se implementó el bucket Amazon S3, el cual ser�
 
 El nombre del bucket se define mediante una variable, permitiendo cumplir con el requisito de unicidad global exigido por AWS.
 
-![Bucket S3](evidencias/06-storage/22-Creacion-Bucket-S3.png)
+![Bucket S3](evidencias/06-storage/25-Creacion-Bucket-S3.png)
 
 **Figura 26.** Creación del bucket Amazon S3.
 
@@ -493,7 +493,7 @@ Posteriormente se habilitó el versionado del bucket, permitiendo conservar el h
 
 Esta funcionalidad constituye una buena práctica para prevenir pérdidas accidentales de información y facilitar procesos de recuperación.
 
-![Versionado del bucket](evidencias/06-storage/23-Versionado-Bucket.png)
+![Versionado del bucket](evidencias/06-storage/26-Versionado-Bucket.png)
 
 **Figura 27.** Configuración del versionado del bucket S3.
 
@@ -505,7 +505,7 @@ Con el propósito de proteger la información almacenada, se configuró el cifra
 
 Esta configuración garantiza que todos los objetos almacenados permanezcan cifrados de manera transparente.
 
-![Cifrado del bucket](evidencias/06-storage/24-Cifrado-Bucket.png)
+![Cifrado del bucket](evidencias/06-storage/27-Cifrado-Bucket-S3.png)
 
 **Figura 28.** Configuración del cifrado del bucket mediante AES-256.
 
@@ -520,7 +520,7 @@ Entre los principales valores expuestos se encuentran:
 - Nombre del bucket.
 - ARN del bucket.
 
-![Outputs módulo Storage](evidencias/06-storage/25-Outputs-Modulo-Storage.png)
+![Outputs módulo Storage](evidencias/06-storage/28-Outputs-Modulo-Storage.png)
 
 **Figura 29.** Outputs publicados por el módulo Storage.
 
@@ -530,7 +530,7 @@ Entre los principales valores expuestos se encuentran:
 
 Una vez implementado el módulo, este fue incorporado al archivo `main.tf` del proyecto principal utilizando el bloque `module`, permitiendo consumir el bucket S3 mediante variables de configuración.
 
-![Integración módulo Storage](evidencias/06-storage/26-Integracion-Modulo-Storage.png)
+![Integración módulo Storage](evidencias/06-storage/29-Integracion-Modulo-Storage.png)
 
 **Figura 30.** Integración del módulo Storage con el proyecto principal.
 
@@ -542,7 +542,7 @@ Durante la implementación se detectó un conflicto asociado a la creación dupl
 
 El problema fue identificado mediante Terraform y corregido antes de la validación final del proyecto, manteniendo la consistencia del estado de la infraestructura y evitando la creación de recursos duplicados.
 
-![Corrección del módulo Storage](evidencias/06-storage/31-Correccion-Modulo-Storage.png)
+![Corrección del módulo Storage](evidencias/06-storage/31-Correccion-ReInit-Validate-Storage.png)
 
 **Figura 31.** Corrección aplicada al módulo Storage durante el desarrollo.
 
@@ -583,7 +583,7 @@ El primer paso consistió en crear el archivo de workflow dentro del directorio 
 
 Este workflow establece el entorno de ejecución, instala Terraform y ejecuta secuencialmente las herramientas de validación configuradas para el proyecto.
 
-![Workflow GitHub Actions](evidencias/07-pipeline/39-Workflow-GitHubActions.png)
+![Workflow GitHub Actions](evidencias/07-pipeline/42-Workflow-Terraform-Validation.png)
 
 **Figura 33.** Configuración del workflow de GitHub Actions.
 
@@ -595,7 +595,7 @@ Para mantener un flujo de trabajo ordenado se creó una rama de desarrollo (`fea
 
 Esta estrategia permite aislar los cambios, facilitar la revisión del código y reducir el riesgo de afectar la versión estable del proyecto.
 
-![Feature Branch](evidencias/07-pipeline/40-Creacion-Feature-Branch.png)
+![Feature Branch](evidencias/07-pipeline/41-Creacion-Rama-Politicas.png)
 
 **Figura 34.** Creación de la rama de desarrollo.
 
@@ -607,7 +607,7 @@ Una vez finalizado el desarrollo y verificadas las validaciones locales, los cam
 
 Este proceso permitió revisar las modificaciones antes de integrarlas a la rama principal.
 
-![Pull Request](evidencias/07-pipeline/41-Pull-Request.png)
+![Pull Request](evidencias/07-pipeline/59-Pull-Request-Creado.png)
 
 **Figura 35.** Creación del Pull Request para integrar los cambios.
 
@@ -624,10 +624,10 @@ El pipeline ejecutó las siguientes etapas:
 - TFLint.
 - Checkov.
 
-![Pipeline ejecutándose](evidencias/07-pipeline/42-Ejecucion-Pipeline.png)
+![Pipeline ejecutándose](evidencias/07-pipeline/57-Pipeline-CI-CD-Completo.png)
 
 **Figura 36.** Ejecución automática del pipeline de validación.
-
+![Pipeline exitoso](evidencias/07-pipeline/43-Workflow-Terraform-Exitoso.png)
 ---
 
 ## Validación mediante Merge
@@ -636,7 +636,7 @@ Una vez completadas correctamente todas las validaciones, el Pull Request fue ap
 
 Esta acción desencadenó nuevamente la ejecución del pipeline, garantizando que el código incorporado cumpliera con las políticas definidas para el proyecto.
 
-![Merge Pull Request](evidencias/07-pipeline/43-Merge-Pull-Request.png)
+![Merge Pull Request](evidencias/07-pipeline/60-Pull-Request-Aprobado.png)
 
 **Figura 37.** Integración del Pull Request en la rama principal.
 
@@ -648,7 +648,7 @@ Finalmente, GitHub Actions confirmó la ejecución satisfactoria de todas las va
 
 El resultado obtenido evidencia que la infraestructura cumple con los controles definidos para el proyecto, asegurando una base confiable antes de proceder al despliegue sobre AWS.
 
-![Pipeline exitoso](evidencias/07-pipeline/44-Pipeline-Exitoso.png)
+![Pipeline exitoso](evidencias/07-pipeline/43-Workflow-Terraform-Exitoso.png)
 
 **Figura 38.** Ejecución exitosa del pipeline de Integración Continua.
 
@@ -664,7 +664,7 @@ Con el propósito de fortalecer la infraestructura desplegada, se incorporaron m
 
 Durante el desarrollo del módulo Compute se habilitaron configuraciones orientadas a mejorar la seguridad de la instancia EC2, incluyendo el uso de **IMDSv2** para proteger el acceso a los metadatos y el **cifrado del volumen EBS** asociado.
 
-![Seguridad EC2](evidencias/08-seguridad/45-Seguridad-EC2.png)
+![Seguridad EC2](evidencias/08-seguridad/47-Endurecimiento-EC2.png)
 
 **Figura 39.** Configuración de seguridad aplicada a la instancia EC2.
 
@@ -674,7 +674,7 @@ Durante el desarrollo del módulo Compute se habilitaron configuraciones orienta
 
 Como parte del pipeline de GitHub Actions se ejecutó **Checkov**, herramienta utilizada para analizar la infraestructura como código y verificar el cumplimiento de buenas prácticas de seguridad.
 
-![Checkov](evidencias/08-seguridad/46-Checkov.png)
+![Checkov](evidencias/08-seguridad/45-Checkov-Politicas-Detectadas.png)
 
 **Figura 40.** Ejecución de Checkov sobre el proyecto Terraform.
 
@@ -684,7 +684,7 @@ Como parte del pipeline de GitHub Actions se ejecutó **Checkov**, herramienta u
 
 Las observaciones detectadas durante el análisis fueron revisadas y corregidas antes de la publicación de los módulos, manteniendo una configuración más segura y alineada con las recomendaciones de Terraform y AWS.
 
-![Corrección Checkov](evidencias/08-seguridad/47-Correccion-Checkov.png)
+![Corrección Checkov](evidencias/08-seguridad/49-Checkov-Mejora-Politicas.png)
 
 **Figura 41.** Corrección de observaciones detectadas por Checkov.
 
@@ -710,19 +710,10 @@ Las principales herramientas utilizadas fueron **Terraform Validate**, **Terrafo
 
 Se ejecutó `terraform validate` para verificar que la configuración del proyecto fuera correcta y que todos los módulos se encontraran correctamente integrados.
 
-![Terraform Validate](evidencias/09-pruebas/49-Terraform-Validate.png)
+![Terraform Validate](evidencias/09-pruebas/14-Terraform-Validate.png)
 
 **Figura 43.** Validación exitosa de la configuración Terraform.
 
----
-
-## Validación del formato
-
-Posteriormente se ejecutó `terraform fmt` para normalizar el formato del código y mantener una estructura uniforme en todos los archivos del proyecto.
-
-![Terraform Format](evidencias/09-pruebas/50-Terraform-Fmt.png)
-
-**Figura 44.** Verificación del formato del código Terraform.
 
 ---
 
@@ -730,7 +721,7 @@ Posteriormente se ejecutó `terraform fmt` para normalizar el formato del códig
 
 Finalmente se utilizó **TFLint** para revisar la calidad del código y detectar posibles configuraciones mejorables antes del despliegue.
 
-![TFLint](evidencias/09-pruebas/51-TFLint.png)
+![TFLint](evidencias/07-pipeline/51-Workflow-Con-TFLint.png)
 
 **Figura 45.** Validación del proyecto mediante TFLint.
 
@@ -750,13 +741,9 @@ Para ello se configuraron previamente los parámetros necesarios, incluyendo la 
 
 Como primer paso se obtuvo la AMI oficial de Amazon Linux 2023 y se verificó la existencia del Key Pair requerido para la creación de la instancia EC2.
 
-![Obtención de la AMI](evidencias/10-despliegue/52-Obtencion-AMI.png)
+![Obtención de la AMI](evidencias/10-despliegue/63-Consulta-AMI-Amazon-Linux.png)
 
 **Figura 46.** Obtención de la AMI oficial de Amazon Linux 2023.
-
-![Verificación del Key Pair](evidencias/10-despliegue/53-Verificacion-KeyPair.png)
-
-**Figura 47.** Verificación del Key Pair utilizado durante el despliegue.
 
 ---
 
@@ -764,7 +751,7 @@ Como primer paso se obtuvo la AMI oficial de Amazon Linux 2023 y se verificó la
 
 Posteriormente se completó el archivo `terraform.tfvars` con los valores específicos del entorno de despliegue.
 
-![Terraform tfvars](evidencias/10-despliegue/54-Creacion-Terraform-Tfvars.png)
+![Terraform tfvars](evidencias/10-despliegue/65-Creacion-Terraform-Tfvars.png)
 
 **Figura 48.** Configuración de las variables del proyecto.
 
@@ -774,7 +761,7 @@ Posteriormente se completó el archivo `terraform.tfvars` con los valores espec�
 
 Antes de crear los recursos se ejecutó `terraform plan`, permitiendo revisar las acciones que Terraform realizaría sobre la infraestructura.
 
-![Terraform Plan](evidencias/10-despliegue/55-Terraform-Plan.png)
+![Terraform Plan](evidencias/10-despliegue/66-Terraform-Plan-Exitoso.png)
 
 **Figura 49.** Resultado de la planificación de la infraestructura.
 
@@ -784,7 +771,7 @@ Antes de crear los recursos se ejecutó `terraform plan`, permitiendo revisar la
 
 Luego se ejecutó `terraform apply`, creando automáticamente los recursos definidos en los módulos reutilizables.
 
-![Terraform Apply](evidencias/10-despliegue/56-Terraform-Apply.png)
+![Terraform Apply](evidencias/10-despliegue/67-Terraform-Apply-Exitoso.png)
 
 **Figura 50.** Ejecución del despliegue mediante Terraform.
 
@@ -801,21 +788,10 @@ Una vez finalizado el proceso se verificó la creación de los principales recur
 - Instancia EC2.
 - Bucket S3.
 
-![Recursos desplegados](evidencias/10-despliegue/57-Recursos-Creados-AWS.png)
+![Recursos desplegados](evidencias/10-despliegue/68-VPC-Creada.png)
 
 **Figura 51.** Recursos creados correctamente en Amazon Web Services.
 
----
-
-## Eliminación de la infraestructura
-
-Finalmente se ejecutó `terraform destroy` para eliminar todos los recursos creados durante la evaluación, evitando costos innecesarios y demostrando el ciclo completo de vida de la infraestructura como código.
-
-![Terraform Destroy](evidencias/10-despliegue/60-Terraform-Destroy.png)
-
-**Figura 52.** Eliminación completa de la infraestructura mediante Terraform.
-
-El despliegue confirmó el correcto funcionamiento de los módulos reutilizables desarrollados, validando la integración entre los componentes de **Network**, **Compute** y **Storage** sobre la plataforma AWS.
 
 ---
 
@@ -859,7 +835,7 @@ Finalmente, los tres módulos desarrollados para esta evaluación quedaron dispo
 - Compute
 - Storage
 
-![Módulos publicados](evidencias/11-final/77-Modulos-finales-terraform-registry.png)
+![Módulos publicados](evidencias/11-final/77-Modulos_finales_terraform_register.png)
 
 **Figura 56.** Módulos reutilizables publicados en HCP Terraform Registry.
 
