@@ -692,7 +692,7 @@ Las observaciones detectadas durante el análisis fueron revisadas y corregidas 
 
 Algunas advertencias fueron documentadas como excepciones justificadas debido al alcance de la evaluación y a las características de la infraestructura implementada.
 
-![Excepciones Checkov](evidencias/08-seguridad/48-Excepciones-Checkov.png)
+![Excepciones Checkov](evidencias/08-seguridad/55-Excepciones-Checkov-Documentadas.png)
 
 **Figura 42.** Excepciones documentadas durante la validación de seguridad.
 
