@@ -360,7 +360,7 @@ Entre las principales variables definidas se encuentran:
 - Nombre del Key Pair.
 - Rango permitido para conexiones SSH.
 
-![Variables módulo Compute](evidencias/05-compute/13-Variables-Modulo-Compute.png)
+![Variables módulo Compute](evidencias/05-compute/15-Variables-Modulo-Compute.png)
 
 **Figura 17.** Variables configurables del módulo Compute.
 
@@ -372,7 +372,7 @@ Como medida básica de seguridad se implementó un Security Group encargado de c
 
 Durante la configuración se habilitó el acceso SSH únicamente desde la dirección IP autorizada definida mediante la variable `allowed_ssh_cidr`, reduciendo la superficie de exposición del servidor.
 
-![Security Group](evidencias/05-compute/14-Security-Group.png)
+![Security Group](evidencias/05-compute/16-Security-Group-Compute.png)
 
 **Figura 18.** Configuración del Security Group de la instancia EC2.
 
@@ -384,7 +384,7 @@ Posteriormente se implementó el recurso encargado de crear la instancia Amazon 
 
 La instancia fue desplegada dentro de la subred pública creada previamente por el módulo Network y asociada automáticamente al Security Group configurado durante la etapa anterior.
 
-![Instancia EC2](evidencias/05-compute/15-Creacion-EC2.png)
+![Instancia EC2](evidencias/05-compute/17-Creacion-EC2.png)
 
 **Figura 19.** Implementación de la instancia Amazon EC2.
 
@@ -421,17 +421,11 @@ La configuración permite reutilizar el módulo simplemente proporcionando las v
 
 ## Validación del módulo
 
-Antes de continuar con el desarrollo de los siguientes componentes, se ejecutaron los comandos `terraform init` y `terraform validate` para verificar que la configuración fuera correcta y no existieran errores de sintaxis.
+Después de integrar el módulo Compute se ejecutaron nuevamente `terraform init` y `terraform validate`, confirmando que la configuración fuera válida y que las dependencias se encontraran correctamente inicializadas.
 
-Estas validaciones forman parte de las buenas prácticas recomendadas por Terraform y permiten detectar problemas antes del despliegue de la infraestructura.
+![Validación módulo Compute](evidencias/05-compute/23-ReInit-y-Validate-Compute.png)
 
-![Terraform Init](evidencias/05-compute/18-Terraform-Init.png)
-
-**Figura 22.** Inicialización del proyecto Terraform.
-
-![Terraform Validate](evidencias/05-compute/19-Terraform-Validate.png)
-
-**Figura 23.** Validación exitosa de la configuración Terraform.
+**Figura 22.** Reinicialización y validación exitosa del módulo Compute.
 
 ---
 
