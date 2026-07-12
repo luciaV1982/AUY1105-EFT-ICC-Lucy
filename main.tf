@@ -12,7 +12,8 @@ provider "aws" {
 }
 
 module "network" {
-  source = "./modules/network"
+  source  = "app.terraform.io/luciavillalobos1982/network-eft-lucia/aws"
+  version = "1.0.0"
 
   vpc_cidr            = var.vpc_cidr
   public_subnet_cidr  = var.public_subnet_cidr
@@ -21,7 +22,8 @@ module "network" {
 }
 
 module "compute" {
-  source = "./modules/compute"
+  source  = "app.terraform.io/luciavillalobos1982/compute-eft-lucia/aws"
+  version = "1.0.0"
 
   vpc_id    = module.network.vpc_id
   subnet_id = module.network.public_subnet_id
@@ -33,8 +35,10 @@ module "compute" {
 }
 
 module "storage" {
-  source = "./modules/storage"
+  source  = "app.terraform.io/luciavillalobos1982/storage-eft-lucia/aws"
+  version = "1.0.0"
 
   bucket_name       = var.bucket_name
   enable_versioning = var.enable_versioning
 }
+
