@@ -407,3 +407,110 @@ La configuración de la instancia EC2 fue reforzada mediante controles de monito
 
 - 47-Endurecimiento-EC2
 - 48-Validate-Endurecimiento-EC2
+
+---
+
+## Paso 17 - Configuración del Pipeline CI/CD
+
+### Objetivo
+
+Automatizar la validación del proyecto Terraform mediante GitHub Actions para ejecutar controles de calidad y seguridad antes de integrar cambios al repositorio principal.
+
+### Actividades realizadas
+
+- Se creó el workflow `terraform.yml`.
+- Se configuró la ejecución automática mediante Push y Pull Request.
+- Se integraron las validaciones `terraform fmt` y `terraform validate`.
+- Se incorporaron las herramientas TFLint y Checkov al pipeline.
+- Se verificó el funcionamiento completo del proceso de validación.
+
+### Resultado
+
+Se implementó un pipeline de Integración Continua que valida automáticamente la calidad, consistencia y seguridad del proyecto Terraform antes de su integración.
+
+### Evidencias
+
+- 42-Workflow-Terraform-Validation
+- 44-Workflow-Con-Checkov
+- 57-Pipeline-CI-CD-Completo
+
+---
+
+## Paso 18 - Publicación de módulos en HCP Terraform Registry
+
+### Objetivo
+
+Publicar los módulos desarrollados en HCP Terraform Registry utilizando versionado semántico para permitir su reutilización desde el proyecto principal.
+
+### Actividades realizadas
+
+- Se creó el Tag `v1.0.0`.
+- Se publicaron los módulos Network, Compute y Storage.
+- Se verificó la disponibilidad de los módulos en HCP Terraform Registry.
+- Se comprobó el correcto versionado de cada módulo.
+
+### Resultado
+
+Los tres módulos quedaron publicados correctamente en HCP Terraform Registry y disponibles para ser consumidos desde cualquier proyecto Terraform.
+
+### Evidencias
+
+- 61-Tag-v1.0.0-Creado
+- 62-Tag-v1.0.0-GitHub
+- 76-Modulo-Network-Terraform-Registry
+- 77-Modulos_finales_terraform_register
+
+---
+
+## Paso 19 - Integración del proyecto principal
+
+### Objetivo
+
+Consumir los módulos publicados desde HCP Terraform Registry para desplegar la infraestructura completa utilizando una arquitectura modular.
+
+### Actividades realizadas
+
+- Se configuró el archivo `main.tf` del proyecto principal.
+- Se integraron los módulos Network, Compute y Storage.
+- Se declararon las variables y outputs necesarios.
+- Se preparó el archivo `terraform.tfvars.example` para facilitar la reutilización del proyecto.
+
+### Resultado
+
+El proyecto principal quedó configurado para consumir los módulos reutilizables publicados y centralizar el despliegue de la infraestructura.
+
+### Evidencias
+
+- 12-Conexion-Modulo-Network
+- 20-Integracion-Modulo-Compute
+- 29-Integracion-Modulo-Storage
+- 33-Outputs-Proyecto-Principal
+- 35-Terraform-Tfvars-Example
+- 36-Main-Refactorizado-Variables
+- 37-Terraform-Tfvars-Example-Completo
+
+---
+
+## Paso 20 - Documentación y validación final
+
+### Objetivo
+
+Realizar la revisión final del proyecto y completar la documentación técnica requerida para la entrega de la evaluación.
+
+### Actividades realizadas
+
+- Se corrigieron las observaciones detectadas durante las validaciones.
+- Se documentaron las excepciones aplicadas en Checkov.
+- Se elaboró el README técnico con el desarrollo completo de la solución.
+- Se organizaron las evidencias utilizadas durante la implementación.
+- Se verificó la correcta visualización del README y sus imágenes en GitHub.
+
+### Resultado
+
+El proyecto quedó completamente documentado, validado y preparado para su entrega, incluyendo módulos reutilizables, pipeline automatizado y publicación en HCP Terraform Registry.
+
+### Evidencias
+
+- 49-Checkov-Mejora-Politicas
+- 55-Excepciones-Checkov-Documentadas
+- README.md
